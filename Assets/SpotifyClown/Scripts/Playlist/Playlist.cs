@@ -21,28 +21,43 @@ public class Playlist : MonoBehaviour
 
     public Button deletePlaylistButton;
 
+    public bool isGeneralPlaylist = false;
 
     // Start is called before the first frame update
     void Start()
     {
         playListManager = FindObjectOfType<PlayListManager>();
 
-        buttonText.text = playListData.name;        
+        deletePlaylistButton.gameObject.SetActive(false);
+        if (isGeneralPlaylist)
+        {
+            buttonText.text = "All songs";
+        }
+
+        else
+        {
+            buttonText.text = playListData.name;
+        }
     }
 
     public void switchPlaylist()
     {
+        playListManager.currentPlayList.deletePlaylistButton.gameObject.SetActive(false);
+
+        playListManager.SwitchPlaylist(this);
+
+        /*
         foreach (AudioClip song in playListData.songs)
         {
             GameObject obj = Instantiate(songPrefab);
 
         }
-    }
+        */
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        if (!isGeneralPlaylist)
+        {
+            deletePlaylistButton.gameObject.SetActive(true);
+        }
     }
 
     public void Delete()

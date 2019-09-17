@@ -36,7 +36,8 @@ public class Song : MonoBehaviour
 
     public void RemoveFromPlaylist()
     {
-        PlayListData playlist = new PlayListData();
         playListManager.RemoveFromPlaylist(currentPlaylist, song);
+
+        Destroy(this.gameObject);
     }
 }
