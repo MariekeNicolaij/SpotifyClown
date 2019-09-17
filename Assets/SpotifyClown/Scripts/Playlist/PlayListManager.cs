@@ -4,23 +4,18 @@ using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.UI;
 
-public class PlayList
-{
-    public string name;
-    public List<AudioClip> songs;
-}
-
 public class PlayListManager : MonoBehaviour
 {
-    public PlayList allSongsPlaylist;
+    public PlayListData allSongsPlaylist;
 
     public List<AudioClip> allSongs;
-    public List<PlayList> listOfPlaylists;
+    public List<Playlist> listOfPlaylists;
 
 
-    public PlayList currentPlayList;
-
+    public PlayListData currentPlayList;
     public Dropdown playlistDropdown;
+
+    public GameObject playlistPrefab;
 
     public void Start()
     {
@@ -36,19 +31,25 @@ public class PlayListManager : MonoBehaviour
 
     public void CreatePlaylist(string name)
     {
-        PlayList playList = new PlayList();
+        PlayListData playList = new PlayListData();
         playList.name = name;
-        listOfPlaylists.Add(playList);
+
+        GameObject obj = Instantiate(playlistPrefab);
+
+        obj.GetComponentInChildren<Text>().text = playList.name;
+        obj.GetComponentInChildren<Playlist>().playListData = playList;
+
+        listOfPlaylists.Add(obj.GetComponentInChildren<Playlist>());
     }
 
-    public void SwitchPlaylist(PlayList selectedPlaylist)
+    public void SwitchPlaylist(PlayListData selectedPlaylist)
     {
         currentPlayList = selectedPlaylist;
         UpdatePlaylistUI();
     }
 
 
-    public void DeletePlaylist(PlayList playList)
+    public void DeletePlaylist(Playlist playList)
     {
         listOfPlaylists.Remove(playList);
 
@@ -56,12 +57,12 @@ public class PlayListManager : MonoBehaviour
         SwitchPlaylist(allSongsPlaylist);
     }
 
-    public void AddToPlayList(PlayList playList, AudioClip song)
+    public void AddToPlayList(PlayListData playList, AudioClip song)
     {
         playList.songs.Add(song);
     }
 
-    public void RemoveFromPlaylist(PlayList playList, AudioClip song)
+    public void RemoveFromPlaylist(PlayListData playList, AudioClip song)
     {
         playList.songs.Remove(song);
         UpdatePlaylistUI();
@@ -73,13 +74,12 @@ public class PlayListManager : MonoBehaviour
     }
 
     //TODO:
-
+    //2. the "general" play list with all the songs(cannot be deleted)
     //3. Swap Between playlist
     //4. Add songs to playlist from the "general" playlist
     //5. Remove songs from specific playlist
-    //6. Delete playlist
 
     //Done:
-    //1. the "general" play list with all the songs(cannot be deleted)
-    //2. Create playlist
+    //1. Create playlist
+    //6. Delete playlist
 }
