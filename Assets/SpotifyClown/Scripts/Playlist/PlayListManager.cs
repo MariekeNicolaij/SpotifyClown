@@ -20,6 +20,8 @@ public class PlayListManager : MonoBehaviour
     public GameObject playlistRoot;
     public GameObject songRoot;
 
+    public InputField newPlaylistName;
+
     public void Start()
     {
         //Add all the songs to the all songs playlist
@@ -32,17 +34,19 @@ public class PlayListManager : MonoBehaviour
         UpdatePlaylistUI();
     }
 
-    public void CreatePlaylist(string name)
+    public void CreatePlaylist()
     {
         PlayListData playList = new PlayListData();
-        playList.name = name;
+
 
         GameObject obj = Instantiate(playlistPrefab, playlistRoot.transform);
 
-        obj.GetComponentInChildren<Text>().text = playList.name;
-        obj.GetComponentInChildren<Playlist>().playListData = playList;
+        Playlist playlist = obj.GetComponentInChildren<Playlist>();
+        playlist.playListData = playList;
+        playlist.buttonText.text = newPlaylistName.text;
+        playList.name = newPlaylistName.text;
 
-        listOfPlaylists.Add(obj.GetComponentInChildren<Playlist>());
+        listOfPlaylists.Add(playlist);
     }
 
     public void SwitchPlaylist(Playlist selectedPlaylist)

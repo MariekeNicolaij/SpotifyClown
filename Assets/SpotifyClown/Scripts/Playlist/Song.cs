@@ -13,11 +13,17 @@ public class Song : MonoBehaviour
     public Button addToPlaylistButton;
     public Button removeFromPlaylistButton;
 
+    public bool isGeneralPlaylist = false;
+
     // Start is called before the first frame update
     void Start()
     {
         playListManager = FindObjectOfType<PlayListManager>();
 
+        if(isGeneralPlaylist)
+        {
+            removeFromPlaylistButton.gameObject.SetActive(false);
+        }
     }
 
     // Update is called once per frame
