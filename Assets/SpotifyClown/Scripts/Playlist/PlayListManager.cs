@@ -13,12 +13,19 @@ public class PlayListManager : MonoBehaviour
 
 
     public Playlist currentPlayList;
+    public Playlist nextPlaylist;
+
     public Dropdown playlistDropdown;
 
     public GameObject playlistPrefab;
 
     public GameObject playlistRoot;
     public GameObject songRoot;
+
+
+
+    public GameObject addToPlaylistSelection;
+    public Dropdown addToPlaylistSelectionDropdown;
 
     public InputField newPlaylistName;
 
@@ -27,10 +34,12 @@ public class PlayListManager : MonoBehaviour
         //Add all the songs to the all songs playlist
         foreach (AudioClip song in allSongs)
         {
-            allSongsPlaylist.playListData.songs.Add(song);
+            //allSongsPlaylist.playListData.songs.Add(song);
+            allSongsPlaylist.songs.Add(song);
         }
 
         currentPlayList = allSongsPlaylist;
+        addToPlaylistSelection.SetActive(false);
         UpdatePlaylistUI();
     }
 
@@ -51,7 +60,10 @@ public class PlayListManager : MonoBehaviour
 
     public void SwitchPlaylist(Playlist selectedPlaylist)
     {
-
+        foreach(GameObject obj in currentPlayList.songGO)
+        {
+            Destroy(obj);
+        }
 
         currentPlayList = selectedPlaylist;
         UpdatePlaylistUI();
@@ -80,6 +92,11 @@ public class PlayListManager : MonoBehaviour
     public void UpdatePlaylistUI()
     {
         //Update UI
+    }
+
+    public void SelectPlaylistToAddSong()
+    {
+
     }
 
     //TODO:

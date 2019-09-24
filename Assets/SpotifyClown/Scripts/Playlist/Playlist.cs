@@ -14,7 +14,10 @@ public class Playlist : MonoBehaviour
 {
     public PlayListManager playListManager;
 
-    public PlayListData playListData;
+    public PlayListData playListData = new PlayListData();
+    public List<AudioClip> songs;
+    public List<GameObject> songGO;
+
     public Button button;
     public Text buttonText;
     public GameObject songPrefab;
@@ -46,13 +49,14 @@ public class Playlist : MonoBehaviour
 
         playListManager.SwitchPlaylist(this);
 
-        /*
-        foreach (AudioClip song in playListData.songs)
+        
+        foreach (AudioClip song in songs)
         {
             GameObject obj = Instantiate(songPrefab);
-
+            obj.GetComponent<Song>().song = song;
+            songGO.Add(obj);
         }
-        */
+        
 
         if (!isGeneralPlaylist)
         {
