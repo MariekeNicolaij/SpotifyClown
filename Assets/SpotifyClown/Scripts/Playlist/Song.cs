@@ -34,6 +34,7 @@ public class Song : MonoBehaviour
     public void AddToPlaylist()
     {
         //Do stuff to get the actual playlist
+        playListManager.songToAddToPlaylist = song;
         playListManager.SelectPlaylistToAddSong();
     }
 

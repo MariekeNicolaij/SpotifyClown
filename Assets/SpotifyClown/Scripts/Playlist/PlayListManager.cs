@@ -12,6 +12,10 @@ public class PlayListManager : MonoBehaviour
     public List<Playlist> listOfPlaylists;
 
 
+    //Stuff to add song to playlist
+    public Playlist playlistToAddSongTo;
+    public AudioClip songToAddToPlaylist;
+
     public Playlist currentPlayList;
     public Playlist nextPlaylist;
 
@@ -41,6 +45,9 @@ public class PlayListManager : MonoBehaviour
         addToPlaylistSelection.SetActive(false);
 
         allSongsPlaylist.switchPlaylist();
+
+        //Temporary thing for playlist to add songs to
+        playlistToAddSongTo = allSongsPlaylist;
     }
 
     public void CreatePlaylist()
@@ -71,7 +78,6 @@ public class PlayListManager : MonoBehaviour
         }
    
         currentPlayList = selectedPlaylist;
-        UpdatePlaylistUI();
     }
 
 
@@ -85,20 +91,15 @@ public class PlayListManager : MonoBehaviour
 
     
 
-    public void AddToPlayList(PlayListData playList, AudioClip song)
+    public void AddToPlayList()
     {
-        playList.songs.Add(song);
+        playlistToAddSongTo.songs.Add(songToAddToPlaylist);
         addToPlaylistSelection.SetActive(false);
     }
 
     public void RemoveFromPlaylist(Playlist playList, AudioClip song, GameObject obj)
     {
         playList.songs.Remove(song);
-    }
-
-    public void UpdatePlaylistUI()
-    {
-        //Update UI
     }
 
     public void SelectPlaylistToAddSong()
@@ -108,6 +109,7 @@ public class PlayListManager : MonoBehaviour
     }
 
     //TODO:
+
     //4. Add songs to playlist from the "general" playlist
 
     //Done:
