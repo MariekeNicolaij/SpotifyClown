@@ -45,16 +45,19 @@ public class Playlist : MonoBehaviour
 
     public void switchPlaylist()
     {
-        playListManager.currentPlayList.deletePlaylistButton.gameObject.SetActive(false);
 
         playListManager.SwitchPlaylist(this);
 
         
         foreach (AudioClip song in songs)
         {
-            GameObject obj = Instantiate(songPrefab);
+            GameObject obj = Instantiate(songPrefab, playListManager.songRoot.transform);
             obj.GetComponent<Song>().song = song;
             songGO.Add(obj);
+            if(isGeneralPlaylist)
+            {
+                obj.GetComponent<Song>().removeFromPlaylistButton.gameObject.SetActive(false);
+            }
         }
         
 

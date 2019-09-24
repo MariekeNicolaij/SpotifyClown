@@ -38,9 +38,9 @@ public class PlayListManager : MonoBehaviour
             allSongsPlaylist.songs.Add(song);
         }
 
-        currentPlayList = allSongsPlaylist;
         addToPlaylistSelection.SetActive(false);
-        UpdatePlaylistUI();
+
+        allSongsPlaylist.switchPlaylist();
     }
 
     public void CreatePlaylist()
@@ -60,11 +60,16 @@ public class PlayListManager : MonoBehaviour
 
     public void SwitchPlaylist(Playlist selectedPlaylist)
     {
-        foreach(GameObject obj in currentPlayList.songGO)
+        if (currentPlayList != null)
         {
-            Destroy(obj);
-        }
+            currentPlayList.deletePlaylistButton.gameObject.SetActive(false);
 
+            foreach (GameObject obj in currentPlayList.songGO)
+            {
+                Destroy(obj);
+            }
+        }
+   
         currentPlayList = selectedPlaylist;
         UpdatePlaylistUI();
     }
@@ -78,15 +83,17 @@ public class PlayListManager : MonoBehaviour
         SwitchPlaylist(allSongsPlaylist);
     }
 
+    
+
     public void AddToPlayList(PlayListData playList, AudioClip song)
     {
         playList.songs.Add(song);
+        addToPlaylistSelection.SetActive(false);
     }
 
-    public void RemoveFromPlaylist(PlayListData playList, AudioClip song)
+    public void RemoveFromPlaylist(Playlist playList, AudioClip song, GameObject obj)
     {
-        //playList.songs.Remove(song);
-        UpdatePlaylistUI();
+        playList.songs.Remove(song);
     }
 
     public void UpdatePlaylistUI()
@@ -96,6 +103,7 @@ public class PlayListManager : MonoBehaviour
 
     public void SelectPlaylistToAddSong()
     {
+        addToPlaylistSelection.SetActive(true);
 
     }
 

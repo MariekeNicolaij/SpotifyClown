@@ -108,12 +108,12 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2362874778853480280}
-  m_Father: {fileID: 8167938802496144022}
+  m_Father: {fileID: 6262892401059471870}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 568.1, y: 28.07393}
+  m_AnchoredPosition: {x: 346, y: 0.000017166}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3852869640894378945
@@ -237,12 +237,12 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 6473878306918419085}
-  m_Father: {fileID: 8167938802496144022}
+  m_Father: {fileID: 6262892401059471870}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 386.93997, y: 28.073929}
+  m_AnchoredPosition: {x: 170, y: 0.000015259}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1435442055444266232
@@ -409,8 +409,9 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 8167938802496144022}
+  - component: {fileID: 6262892401059471870}
   - component: {fileID: 3326939243964365082}
+  - component: {fileID: 7708661907769600870}
   m_Layer: 0
   m_Name: SongUI
   m_TagString: Untagged
@@ -418,15 +419,15 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &8167938802496144022
-Transform:
+--- !u!224 &6262892401059471870
+RectTransform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5684628383396107310}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 67.15997, y: 169.15604, z: -294.6875}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 6548303282650278876}
@@ -435,6 +436,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 889.7, y: 36}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &3326939243964365082
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -451,6 +457,27 @@ MonoBehaviour:
   song: {fileID: 0}
   addToPlaylistButton: {fileID: 7848338987547478371}
   removeFromPlaylistButton: {fileID: 2921501775783319497}
+  isGeneralPlaylist: 0
+--- !u!114 &7708661907769600870
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5684628383396107310}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 306cc8c2b49d7114eaa3623786fc2126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_IgnoreLayout: 0
+  m_MinWidth: -1
+  m_MinHeight: -1
+  m_PreferredWidth: -1
+  m_PreferredHeight: 100
+  m_FlexibleWidth: -1
+  m_FlexibleHeight: -1
+  m_LayoutPriority: 1
 --- !u!1 &7314232539362716615
 GameObject:
   m_ObjectHideFlags: 0
@@ -480,13 +507,13 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 294.6875}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 8167938802496144022}
+  m_Father: {fileID: 6262892401059471870}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 172.84003, y: 28.071045}
-  m_SizeDelta: {x: 160, y: 30}
+  m_AnchoredPosition: {x: -191.1, y: 0}
+  m_SizeDelta: {x: 487.8, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5509912984862482864
 CanvasRenderer:

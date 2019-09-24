@@ -8,7 +8,6 @@ public class Song : MonoBehaviour
 {
     public PlayListManager playListManager;
 
-    public PlayListData currentPlaylist;
     public AudioClip song;
     public Button addToPlaylistButton;
     public Button removeFromPlaylistButton;
@@ -35,14 +34,13 @@ public class Song : MonoBehaviour
     public void AddToPlaylist()
     {
         //Do stuff to get the actual playlist
-
-        //Add to the playlist
-        playListManager.AddToPlayList(currentPlaylist, song);
+        playListManager.SelectPlaylistToAddSong();
     }
 
     public void RemoveFromPlaylist()
     {
-        playListManager.RemoveFromPlaylist(currentPlaylist, song);
+        
+        playListManager.RemoveFromPlaylist(playListManager.currentPlayList, song, this.gameObject);
 
         Destroy(this.gameObject);
     }
