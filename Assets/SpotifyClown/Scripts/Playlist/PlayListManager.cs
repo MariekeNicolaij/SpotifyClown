@@ -89,7 +89,18 @@ public class PlayListManager : MonoBehaviour
         SwitchPlaylist(allSongsPlaylist);
     }
 
-    
+    //when drop down changes, change the playlist to add song to. This dropdown should have a list of all of the playlists
+    public void SelectedPlaylistToAddSongTo()
+    {
+
+    }
+
+    //Cancel the adding of a song to a playlist
+    public void CancelSongAddition()
+    {
+        addToPlaylistSelection.SetActive(false);
+
+    }
 
     public void AddToPlayList()
     {
