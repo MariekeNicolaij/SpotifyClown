@@ -31,6 +31,8 @@ public class SpotifyPlayer : MonoBehaviour
 
     public AudioSource audioSource;
     public List<TempPlaylist> tempPlaylist = new List<TempPlaylist>(); // Set in Editor
+
+    public Playlist currentPlaylist;
     AudioClip clip;
 
 
@@ -59,12 +61,21 @@ public class SpotifyPlayer : MonoBehaviour
 
     void SetUIStuff()
     {
+        songImage.sprite = currentPlaylist.playlistSongs[index].image;
+        //isAnimatingSongImage = true;
+        songName.text = clip.name;
+        Debug.Log("Kan ik de artist uit de musicfile halen?"); //public Text songArtist;
+
+        SetDurationText();
+
+        /*
         songImage.sprite = tempPlaylist[index].songImage;
         //isAnimatingSongImage = true;
         songName.text = clip.name;
         Debug.Log("Kan ik de artist uit de musicfile halen?"); //public Text songArtist;
 
         SetDurationText();
+        */
     }
 
     void SetDurationText()
@@ -104,14 +115,57 @@ public class SpotifyPlayer : MonoBehaviour
             nextIndex = index - 1;
 
             if (nextIndex < 0)
+                nextIndex = currentPlaylist.playlistSongs.Count - 1;
+        }
+
+        PlaySong();
+
+        /*
+        if (!loop)
+        {
+            float resetSongTimeRange = 5; // Seconds
+
+            int seconds = ((int)audioSource.time % 60);
+            if (seconds >= resetSongTimeRange)
+            {
+                audioSource.Stop();
+                audioSource.Play();
+                return;
+            }
+
+            nextIndex = index - 1;
+
+            if (nextIndex < 0)
                 nextIndex = tempPlaylist.Count - 1;
         }
 
         PlaySong();
+        */
     }
 
     public void Next()
     {
+        if (!loop)
+        {
+            int playlistLength = currentPlaylist.playlistSongs.Count;
+
+            // Determine which song has to be played
+            if (shuffle)
+            {
+                while (nextIndex == index) // We do not want the same song to play again
+                    nextIndex = Random.Range(0, playlistLength);
+            }
+            else
+            {
+                nextIndex = index + 1;
+                if (nextIndex >= playlistLength)
+                    nextIndex = 0;
+            }
+        }
+
+        PlaySong();
+
+        /*
         if (!loop)
         {
             int playlistLength = tempPlaylist.Count;
@@ -131,11 +185,28 @@ public class SpotifyPlayer : MonoBehaviour
         }
 
         PlaySong();
+        */
     }
 
     // Dont call this directly, Call Next or Previous instead
-    void PlaySong()
+    public void PlaySong()
     {
+        clip = currentPlaylist.playlistSongs[index].song;
+
+        index = nextIndex;
+
+        // UI
+        SetUIStuff();
+
+        // Play the song
+        durationSlider.value = 0;
+        audioSource.Stop();
+        audioSource.clip = clip;
+        audioSource.Play();
+
+        // Get and set the heart icon
+        Favourite();
+        /*
         clip = tempPlaylist[nextIndex].song;
 
         index = nextIndex;
@@ -151,6 +222,7 @@ public class SpotifyPlayer : MonoBehaviour
 
         // Get and set the heart icon
         Favourite();
+        */
     }
 
     // Toggles shuffle icon when manual is true, else it will just get the current value

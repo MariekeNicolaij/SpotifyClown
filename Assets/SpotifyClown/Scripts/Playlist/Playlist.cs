@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-
 public class PlayListData
 {
     public string name;
@@ -18,6 +17,7 @@ public class Playlist : MonoBehaviour
 
     public PlayListData playListData = new PlayListData();
     public List<AudioClip> songs;
+    public List<RegularSong> playlistSongs;
     public List<GameObject> songGO;
 
     public Button button;
@@ -49,7 +49,19 @@ public class Playlist : MonoBehaviour
     {
         playListManager.SwitchPlaylist(this);
 
-        
+        foreach (RegularSong song in playlistSongs)
+        {
+            GameObject obj = Instantiate(songPrefab, playListManager.songRoot.transform);
+            obj.GetComponent<Song>().regularSong = song;
+            obj.GetComponent<Song>().songName.text = song.song.name.ToString();
+            songGO.Add(obj);
+            if (isGeneralPlaylist)
+            {
+                obj.GetComponent<Song>().removeFromPlaylistButton.gameObject.SetActive(false);
+            }
+        }
+
+        /*
         foreach (AudioClip song in songs)
         {
             GameObject obj = Instantiate(songPrefab, playListManager.songRoot.transform);
@@ -60,8 +72,8 @@ public class Playlist : MonoBehaviour
             {
                 obj.GetComponent<Song>().removeFromPlaylistButton.gameObject.SetActive(false);
             }
-        }
-        
+        }*/
+
 
         if (!isGeneralPlaylist)
         {

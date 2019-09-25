@@ -6,11 +6,14 @@ using UnityEngine.UI;
 
 public class PlayListManager : MonoBehaviour
 {
+    public SpotifyPlayer spotifyPlayer;
+
     public GameObject playlistStuff;
 
     public Playlist allSongsPlaylist;
 
     public List<AudioClip> allSongs;
+    public List<RegularSong> allRegularSongs;
     public List<Playlist> listOfPlaylists;
 
 
@@ -38,13 +41,19 @@ public class PlayListManager : MonoBehaviour
     public void Start()
     {
 
+        foreach (RegularSong song in allRegularSongs)
+        {
+            //allSongsPlaylist.playListData.songs.Add(song);
+            allSongsPlaylist.playlistSongs.Add(song);
+        }
 
+        /*
         //Add all the songs to the all songs playlist
         foreach (AudioClip song in allSongs)
         {
             //allSongsPlaylist.playListData.songs.Add(song);
             allSongsPlaylist.songs.Add(song);
-        }
+        }*/
 
         addToPlaylistSelection.SetActive(false);
 
@@ -54,6 +63,8 @@ public class PlayListManager : MonoBehaviour
         playlistToAddSongTo = allSongsPlaylist;
 
         listOfPlaylists.Add(allSongsPlaylist);
+
+        spotifyPlayer.currentPlaylist = currentPlayList;
 
         playlistStuff.SetActive(false);
     }
@@ -171,9 +182,10 @@ public class PlayListManager : MonoBehaviour
         addToPlaylistSelection.SetActive(false);
     }
 
-    public void RemoveFromPlaylist(Playlist playList, AudioClip song, GameObject obj)
+    public void RemoveFromPlaylist(Playlist playList, RegularSong song, GameObject obj)//AudioClip song, GameObject obj)
     {
-        playList.songs.Remove(song);
+        playList.playlistSongs.Remove(song);
+        //playList.songs.Remove(song);
     }
 
     public void SelectPlaylistToAddSong()
@@ -192,20 +204,8 @@ public class PlayListManager : MonoBehaviour
         playlistStuff.SetActive(false);
 
         //Do stuff to put the last selected playlist into the music player
+        spotifyPlayer.currentPlaylist = currentPlayList;
+        spotifyPlayer.PlaySong();
 
     }
-
-
-    //TODO:
-
-    //4. Add songs to playlist from the "general" playlist
-
-    //Done:
-    //1. Create playlist
-    //6. Delete playlist
-    //5. Remove songs from specific playlist
-    //3. Swap Between playlist
-    //2. the "general" play list with all the songs(cannot be deleted)
-
-
 }

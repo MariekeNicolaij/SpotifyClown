@@ -7,8 +7,8 @@ using UnityEngine.UI;
 public class Song : MonoBehaviour
 {
     public PlayListManager playListManager;
-
     public AudioClip song;
+    public RegularSong regularSong;
     public Button addToPlaylistButton;
     public Button removeFromPlaylistButton;
     public Text songName;
@@ -35,8 +35,9 @@ public class Song : MonoBehaviour
 
     public void RemoveFromPlaylist()
     {
-        
-        playListManager.RemoveFromPlaylist(playListManager.currentPlayList, song, this.gameObject);
+
+        //playListManager.RemoveFromPlaylist(playListManager.currentPlayList, song, this.gameObject);
+        playListManager.RemoveFromPlaylist(playListManager.currentPlayList, regularSong, this.gameObject);
 
         Destroy(this.gameObject);
     }
