@@ -47,7 +47,6 @@ public class Playlist : MonoBehaviour
 
     public void switchPlaylist()
     {
-
         playListManager.SwitchPlaylist(this);
 
         

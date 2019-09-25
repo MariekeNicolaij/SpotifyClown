@@ -6,6 +6,8 @@ using UnityEngine.UI;
 
 public class PlayListManager : MonoBehaviour
 {
+    public GameObject playlistStuff;
+
     public Playlist allSongsPlaylist;
 
     public List<AudioClip> allSongs;
@@ -35,6 +37,8 @@ public class PlayListManager : MonoBehaviour
 
     public void Start()
     {
+
+
         //Add all the songs to the all songs playlist
         foreach (AudioClip song in allSongs)
         {
@@ -50,6 +54,8 @@ public class PlayListManager : MonoBehaviour
         playlistToAddSongTo = allSongsPlaylist;
 
         listOfPlaylists.Add(allSongsPlaylist);
+
+        playlistStuff.SetActive(false);
     }
 
     public void CreatePlaylist()
@@ -175,6 +181,20 @@ public class PlayListManager : MonoBehaviour
         addToPlaylistSelection.SetActive(true);
 
     }
+
+    public void OpenPlaylistStuff()
+    {
+        playlistStuff.SetActive(true);
+    }
+
+    public void ClosePlaylistStuff()
+    {
+        playlistStuff.SetActive(false);
+
+        //Do stuff to put the last selected playlist into the music player
+
+    }
+
 
     //TODO:
 
