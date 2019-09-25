@@ -62,6 +62,7 @@ public class PlayListManager : MonoBehaviour
         Playlist playlist = obj.GetComponentInChildren<Playlist>();
         playlist.playListData = playList;
         playlist.buttonText.text = newPlaylistName.text;
+        playlist.playlistName = newPlaylistName.text;
         playList.name = newPlaylistName.text;
 
         listOfPlaylists.Add(playlist);
@@ -96,6 +97,32 @@ public class PlayListManager : MonoBehaviour
     public void DeletePlaylist(Playlist playList)
     {
         listOfPlaylists.Remove(playList);
+
+        List<Dropdown.OptionData> dropdownOptions = new List<Dropdown.OptionData>();
+        dropdownOptions.AddRange(playlistDropdown.options);
+
+        Dropdown.OptionData optionToRemove = null;
+        foreach(Dropdown.OptionData dropdown in dropdownOptions)
+        {
+            Debug.Log(dropdown.text + " " + playList.name);
+
+            if (dropdown.text == playList.playlistName)
+            {
+
+                optionToRemove = dropdown;
+            }
+        }
+        if(optionToRemove != null)
+        {
+            dropdownOptions.Remove(optionToRemove);
+        }
+
+
+        playlistDropdown.options.Clear();
+
+
+        playlistDropdown.AddOptions(dropdownOptions);
+
 
         //Move to the all songs playlist
         SwitchPlaylist(allSongsPlaylist);

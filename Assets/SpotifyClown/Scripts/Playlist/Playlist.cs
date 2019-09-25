@@ -12,6 +12,8 @@ public class PlayListData
 
 public class Playlist : MonoBehaviour
 {
+
+    public string playlistName = "playlist";
     public PlayListManager playListManager;
 
     public PlayListData playListData = new PlayListData();
