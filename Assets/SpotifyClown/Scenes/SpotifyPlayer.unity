@@ -120,6 +120,36 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &3931201
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3931202}
+  m_Layer: 0
+  m_Name: player stuff
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3931202
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3931201}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 640.46985, y: 270.75488, z: -42.64525}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 628395565}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &78007956
 GameObject:
   m_ObjectHideFlags: 0
@@ -692,6 +722,12 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 372996536}
   m_CullTransparentMesh: 0
+--- !u!4 &628395565 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5671396383834758093, guid: 600cba28edf4b154eaef81548c6b7dda,
+    type: 3}
+  m_PrefabInstance: {fileID: 1196363504}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &634786514
 GameObject:
   m_ObjectHideFlags: 0
@@ -949,6 +985,8 @@ MonoBehaviour:
   pause: 0
   shuffle: 0
   loop: 0
+  index: 0
+  nextIndex: 0
   audioSource: {fileID: 1014579115}
   tempPlaylist:
   - song: {fileID: 8300000, guid: 5bdea8a0b437bff4388c1e4217893175, type: 3}
@@ -1485,6 +1523,11 @@ PrefabInstance:
       propertyPath: m_RootOrder
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 1212848414925512435, guid: 600cba28edf4b154eaef81548c6b7dda,
+        type: 3}
+      propertyPath: m_Color.a
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1593179419851384749, guid: 600cba28edf4b154eaef81548c6b7dda,
         type: 3}
       propertyPath: m_RootOrder
@@ -1507,9 +1550,56 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6981471660278653466, guid: 600cba28edf4b154eaef81548c6b7dda,
         type: 3}
+      propertyPath: allRegularSongs.Array.size
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6981471660278653466, guid: 600cba28edf4b154eaef81548c6b7dda,
+        type: 3}
       propertyPath: spotifyPlayer
       value: 
       objectReference: {fileID: 1014579113}
+    - target: {fileID: 6981471660278653466, guid: 600cba28edf4b154eaef81548c6b7dda,
+        type: 3}
+      propertyPath: allRegularSongs.Array.data[0]
+      value: 
+      objectReference: {fileID: 8136784444878590392, guid: 26458cb4d30a18a43b1eb6feadc7ee16,
+        type: 3}
+    - target: {fileID: 6981471660278653466, guid: 600cba28edf4b154eaef81548c6b7dda,
+        type: 3}
+      propertyPath: allRegularSongs.Array.data[1]
+      value: 
+      objectReference: {fileID: 7050491752290588607, guid: f857fdd429df21b4e9b5ddfb58101328,
+        type: 3}
+    - target: {fileID: 6981471660278653466, guid: 600cba28edf4b154eaef81548c6b7dda,
+        type: 3}
+      propertyPath: allRegularSongs.Array.data[2]
+      value: 
+      objectReference: {fileID: 5672294050033516747, guid: 90417389a8fa6dd4886f033e38fe05f2,
+        type: 3}
+    - target: {fileID: 6981471660278653466, guid: 600cba28edf4b154eaef81548c6b7dda,
+        type: 3}
+      propertyPath: allRegularSongs.Array.data[3]
+      value: 
+      objectReference: {fileID: 6995203958167332044, guid: 9b71eeb8d09c9234ba031c8ea1cacf04,
+        type: 3}
+    - target: {fileID: 6981471660278653466, guid: 600cba28edf4b154eaef81548c6b7dda,
+        type: 3}
+      propertyPath: allRegularSongs.Array.data[4]
+      value: 
+      objectReference: {fileID: 3917814499871681078, guid: 17e54ccdd00a4fe40848477f571765a1,
+        type: 3}
+    - target: {fileID: 6981471660278653466, guid: 600cba28edf4b154eaef81548c6b7dda,
+        type: 3}
+      propertyPath: allRegularSongs.Array.data[5]
+      value: 
+      objectReference: {fileID: 8662492707394977335, guid: 0a8cbbc5419e864429a4f7050cdd0f4a,
+        type: 3}
+    - target: {fileID: 6981471660278653466, guid: 600cba28edf4b154eaef81548c6b7dda,
+        type: 3}
+      propertyPath: allRegularSongs.Array.data[6]
+      value: 
+      objectReference: {fileID: 3959788749462354233, guid: 71ad278bcd4e22744a900ddc48342b7f,
+        type: 3}
     - target: {fileID: 6021225843833982344, guid: 600cba28edf4b154eaef81548c6b7dda,
         type: 3}
       propertyPath: m_RootOrder

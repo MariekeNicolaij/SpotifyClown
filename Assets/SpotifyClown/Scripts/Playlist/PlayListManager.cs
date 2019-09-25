@@ -20,6 +20,7 @@ public class PlayListManager : MonoBehaviour
     //Stuff to add song to playlist
     public Playlist playlistToAddSongTo;
     public AudioClip songToAddToPlaylist;
+    public RegularSong regularSongToAddToPlaylist;
 
     public Playlist currentPlayList;
     public Playlist nextPlaylist;
@@ -178,8 +179,12 @@ public class PlayListManager : MonoBehaviour
 
     public void AddToPlayList()
     {
-        playlistToAddSongTo.songs.Add(songToAddToPlaylist);
-        addToPlaylistSelection.SetActive(false);
+        if (addToPlaylistSelectionDropdown.value != 0)
+        {
+            //playlistToAddSongTo.songs.Add(songToAddToPlaylist);
+            playlistToAddSongTo.playlistSongs.Add(regularSongToAddToPlaylist);
+            addToPlaylistSelection.SetActive(false);
+        }
     }
 
     public void RemoveFromPlaylist(Playlist playList, RegularSong song, GameObject obj)//AudioClip song, GameObject obj)

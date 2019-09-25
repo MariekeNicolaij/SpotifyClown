@@ -30,6 +30,7 @@ public class Song : MonoBehaviour
     {
         //Do stuff to get the actual playlist
         playListManager.songToAddToPlaylist = song;
+        playListManager.regularSongToAddToPlaylist = regularSong;
         playListManager.SelectPlaylistToAddSong();
     }
 
