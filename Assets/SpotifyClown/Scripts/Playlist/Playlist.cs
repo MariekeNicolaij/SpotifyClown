@@ -53,6 +53,7 @@ public class Playlist : MonoBehaviour
         {
             GameObject obj = Instantiate(songPrefab, playListManager.songRoot.transform);
             obj.GetComponent<Song>().song = song;
+            obj.GetComponent<Song>().songName.text = song.name.ToString();
             songGO.Add(obj);
             if(isGeneralPlaylist)
             {

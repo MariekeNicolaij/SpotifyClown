@@ -468,6 +468,7 @@ MonoBehaviour:
   song: {fileID: 0}
   addToPlaylistButton: {fileID: 7848338987547478371}
   removeFromPlaylistButton: {fileID: 2921501775783319497}
+  songName: {fileID: 7334235457937919268}
   isGeneralPlaylist: 0
 --- !u!114 &7708661907769600870
 MonoBehaviour:

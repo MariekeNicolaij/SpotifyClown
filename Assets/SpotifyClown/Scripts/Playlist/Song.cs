@@ -11,6 +11,7 @@ public class Song : MonoBehaviour
     public AudioClip song;
     public Button addToPlaylistButton;
     public Button removeFromPlaylistButton;
+    public Text songName;
 
     public bool isGeneralPlaylist = false;
 
@@ -23,12 +24,6 @@ public class Song : MonoBehaviour
         {
             removeFromPlaylistButton.gameObject.SetActive(false);
         }
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 
     public void AddToPlaylist()
