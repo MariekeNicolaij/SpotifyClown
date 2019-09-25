@@ -26,7 +26,7 @@ public class SpotifyPlayer : MonoBehaviour
     public Sprite pauseSprite, playSprite;
 
     public bool pause, shuffle, loop;
-    int index = 0, nextIndex = 0;
+    public int index = 0, nextIndex = 0;
     bool isAnimatingSongImage;
 
     public AudioSource audioSource;
@@ -191,21 +191,25 @@ public class SpotifyPlayer : MonoBehaviour
     // Dont call this directly, Call Next or Previous instead
     public void PlaySong()
     {
-        clip = currentPlaylist.playlistSongs[index].song;
+        if(currentPlaylist.playlistSongs.Count > 0)
+        {
+            clip = currentPlaylist.playlistSongs[index].song;
 
-        index = nextIndex;
+            index = nextIndex;
 
-        // UI
-        SetUIStuff();
+            // UI
+            SetUIStuff();
 
-        // Play the song
-        durationSlider.value = 0;
-        audioSource.Stop();
-        audioSource.clip = clip;
-        audioSource.Play();
+            // Play the song
+            durationSlider.value = 0;
+            audioSource.Stop();
+            audioSource.clip = clip;
+            audioSource.Play();
 
-        // Get and set the heart icon
-        Favourite();
+            // Get and set the heart icon
+            Favourite();
+        }
+        
         /*
         clip = tempPlaylist[nextIndex].song;
 

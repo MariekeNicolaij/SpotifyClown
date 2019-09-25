@@ -205,6 +205,7 @@ public class PlayListManager : MonoBehaviour
 
         //Do stuff to put the last selected playlist into the music player
         spotifyPlayer.currentPlaylist = currentPlayList;
+        spotifyPlayer.index = 0;
         spotifyPlayer.PlaySong();
 
     }
