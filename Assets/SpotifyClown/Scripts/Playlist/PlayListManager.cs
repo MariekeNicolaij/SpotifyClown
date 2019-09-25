@@ -48,6 +48,8 @@ public class PlayListManager : MonoBehaviour
 
         //Temporary thing for playlist to add songs to
         playlistToAddSongTo = allSongsPlaylist;
+
+        listOfPlaylists.Add(allSongsPlaylist);
     }
 
     public void CreatePlaylist()
@@ -63,6 +65,16 @@ public class PlayListManager : MonoBehaviour
         playList.name = newPlaylistName.text;
 
         listOfPlaylists.Add(playlist);
+
+        //Add playlist to the list of playlists when adding songs
+        List<Dropdown.OptionData> dropdownOptions = new List<Dropdown.OptionData>();
+        dropdownOptions.AddRange(playlistDropdown.options);
+        playlistDropdown.options.Clear();
+
+        dropdownOptions.Add(new Dropdown.OptionData(newPlaylistName.text));
+        playlistDropdown.AddOptions(dropdownOptions);
+
+        SwitchPlaylist(playlist);
     }
 
     public void SwitchPlaylist(Playlist selectedPlaylist)
@@ -93,6 +105,11 @@ public class PlayListManager : MonoBehaviour
     public void SelectedPlaylistToAddSongTo()
     {
 
+        Debug.Log(addToPlaylistSelectionDropdown.value);
+        if(addToPlaylistSelectionDropdown.value != 0)
+        {
+            playlistToAddSongTo = listOfPlaylists[addToPlaylistSelectionDropdown.value];
+        }
     }
 
     //Cancel the adding of a song to a playlist
