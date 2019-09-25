@@ -26,7 +26,7 @@ public class PlayListManager : MonoBehaviour
     public GameObject playlistRoot;
     public GameObject songRoot;
 
-
+    public GameObject deletePlaylistButton;
 
     public GameObject addToPlaylistSelection;
     public Dropdown addToPlaylistSelectionDropdown;
@@ -82,7 +82,7 @@ public class PlayListManager : MonoBehaviour
     {
         if (currentPlayList != null)
         {
-            currentPlayList.deletePlaylistButton.gameObject.SetActive(false);
+            //currentPlayList.deletePlaylistButton.gameObject.SetActive(false);
 
             foreach (GameObject obj in currentPlayList.songGO)
             {
@@ -91,12 +91,22 @@ public class PlayListManager : MonoBehaviour
         }
    
         currentPlayList = selectedPlaylist;
+
+        if(selectedPlaylist.isGeneralPlaylist)
+        {
+            deletePlaylistButton.SetActive(false);
+        }
+
+        else
+        {
+            deletePlaylistButton.SetActive(true);
+        }
     }
 
 
-    public void DeletePlaylist(Playlist playList)
+    public void DeletePlaylist()//Playlist playList)
     {
-        listOfPlaylists.Remove(playList);
+        listOfPlaylists.Remove(currentPlayList);//playList);
 
         List<Dropdown.OptionData> dropdownOptions = new List<Dropdown.OptionData>();
         dropdownOptions.AddRange(playlistDropdown.options);
@@ -104,9 +114,8 @@ public class PlayListManager : MonoBehaviour
         Dropdown.OptionData optionToRemove = null;
         foreach(Dropdown.OptionData dropdown in dropdownOptions)
         {
-            Debug.Log(dropdown.text + " " + playList.name);
 
-            if (dropdown.text == playList.playlistName)
+            if (dropdown.text == currentPlayList.playlistName)//playList.playlistName)
             {
 
                 optionToRemove = dropdown;
@@ -124,8 +133,12 @@ public class PlayListManager : MonoBehaviour
         playlistDropdown.AddOptions(dropdownOptions);
 
 
+        Destroy(currentPlayList.gameObject);
+
         //Move to the all songs playlist
-        SwitchPlaylist(allSongsPlaylist);
+        allSongsPlaylist.switchPlaylist();
+
+        //SwitchPlaylist(allSongsPlaylist);
     }
 
     //when drop down changes, change the playlist to add song to. This dropdown should have a list of all of the playlists

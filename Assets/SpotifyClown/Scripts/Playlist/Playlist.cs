@@ -66,13 +66,13 @@ public class Playlist : MonoBehaviour
 
         if (!isGeneralPlaylist)
         {
-            deletePlaylistButton.gameObject.SetActive(true);
+            //deletePlaylistButton.gameObject.SetActive(true);
         }
     }
 
     public void Delete()
     {
-        playListManager.DeletePlaylist(this);
+        playListManager.DeletePlaylist();//this);
         Destroy(this.gameObject);
     }
 }
