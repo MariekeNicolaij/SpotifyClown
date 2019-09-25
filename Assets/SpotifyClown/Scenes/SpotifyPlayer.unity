@@ -1426,6 +1426,11 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1593179420578334235, guid: 600cba28edf4b154eaef81548c6b7dda,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6323205497729578329, guid: 600cba28edf4b154eaef81548c6b7dda,
         type: 3}
       propertyPath: m_RootOrder
