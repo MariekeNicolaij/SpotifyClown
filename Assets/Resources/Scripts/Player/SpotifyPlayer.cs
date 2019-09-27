@@ -160,7 +160,6 @@ public class SpotifyPlayer : MonoBehaviour
                     nextIndex = 0;
             }
         }
-        Debug.Log(nextIndex);
 
         PlaySong();
     }
