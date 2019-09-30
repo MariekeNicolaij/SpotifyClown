@@ -59,7 +59,7 @@ public class SpotifyPlayer : MonoBehaviour
         playlistTitle.text = "PLAYING FROM PLAYLIST \n" + name;
     }
 
-    void SetUIStuff()
+    public void SetUIStuff()
     {
         RegularSong song = currentPlaylist.playlistSongs[index];
         songImage.sprite = song.songImage;
@@ -68,6 +68,8 @@ public class SpotifyPlayer : MonoBehaviour
 
         SetDurationText();
         DeterminePlaylistName();
+
+        Debug.Log(currentPlaylist.playlistName);
 
         //isAnimatingSongImage = true;
         /*
