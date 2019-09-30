@@ -33,7 +33,7 @@ public class Playlist : MonoBehaviour
     {
         playListManager = FindObjectOfType<PlayListManager>();
 
-        deletePlaylistButton.gameObject.SetActive(false);
+        //deletePlaylistButton.gameObject.SetActive(false);
         if (isGeneralPlaylist)
         {
             buttonText.text = "All songs";

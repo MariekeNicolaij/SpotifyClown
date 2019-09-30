@@ -1271,6 +1271,7 @@ MonoBehaviour:
   loop: 0
   index: 0
   nextIndex: 0
+  previousSongIndex: 0
   audioSource: {fileID: 358048592}
   currentPlaylist: {fileID: 0}
   imageAnimation: {fileID: 78007960}
@@ -3670,8 +3671,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -473, y: -212}
-  m_SizeDelta: {x: 100, y: 100}
+  m_AnchoredPosition: {x: -387.3, y: 200}
+  m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1593179420310575559
 MonoBehaviour:
@@ -3690,8 +3691,8 @@ MonoBehaviour:
     m_Right: 0
     m_Top: 0
     m_Bottom: 0
-  m_ChildAlignment: 0
-  m_Spacing: 0
+  m_ChildAlignment: 4
+  m_Spacing: 2
   m_ChildForceExpandWidth: 1
   m_ChildForceExpandHeight: 1
   m_ChildControlWidth: 0
@@ -5396,6 +5397,31 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1593179420310575558}
     m_Modifications:
+    - target: {fileID: 1801669415063711648, guid: f8d9e6c9399428b418a2fa62a6239848,
+        type: 3}
+      propertyPath: m_MinWidth
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1801669415063711648, guid: f8d9e6c9399428b418a2fa62a6239848,
+        type: 3}
+      propertyPath: m_MinHeight
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1801669415063711648, guid: f8d9e6c9399428b418a2fa62a6239848,
+        type: 3}
+      propertyPath: m_IgnoreLayout
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1949088005857358564, guid: f8d9e6c9399428b418a2fa62a6239848,
+        type: 3}
+      propertyPath: playListManager
+      value: 
+      objectReference: {fileID: 6981471659317439722}
+    - target: {fileID: 1949088005857358564, guid: f8d9e6c9399428b418a2fa62a6239848,
+        type: 3}
+      propertyPath: isGeneralPlaylist
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2490173271073403692, guid: f8d9e6c9399428b418a2fa62a6239848,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -5464,12 +5490,12 @@ PrefabInstance:
     - target: {fileID: 2490173271073403692, guid: f8d9e6c9399428b418a2fa62a6239848,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 100
+      value: 160
       objectReference: {fileID: 0}
     - target: {fileID: 2490173271073403692, guid: f8d9e6c9399428b418a2fa62a6239848,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 100
+      value: 30.03
       objectReference: {fileID: 0}
     - target: {fileID: 2490173271073403692, guid: f8d9e6c9399428b418a2fa62a6239848,
         type: 3}
@@ -5501,35 +5527,10 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 1949088005857358564, guid: f8d9e6c9399428b418a2fa62a6239848,
-        type: 3}
-      propertyPath: playListManager
-      value: 
-      objectReference: {fileID: 6981471659317439722}
-    - target: {fileID: 1949088005857358564, guid: f8d9e6c9399428b418a2fa62a6239848,
-        type: 3}
-      propertyPath: isGeneralPlaylist
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 3923381234825943283, guid: f8d9e6c9399428b418a2fa62a6239848,
         type: 3}
       propertyPath: m_Name
       value: allSongs
-      objectReference: {fileID: 0}
-    - target: {fileID: 1801669415063711648, guid: f8d9e6c9399428b418a2fa62a6239848,
-        type: 3}
-      propertyPath: m_MinWidth
-      value: -1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1801669415063711648, guid: f8d9e6c9399428b418a2fa62a6239848,
-        type: 3}
-      propertyPath: m_MinHeight
-      value: -1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1801669415063711648, guid: f8d9e6c9399428b418a2fa62a6239848,
-        type: 3}
-      propertyPath: m_IgnoreLayout
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 384607674216704584, guid: f8d9e6c9399428b418a2fa62a6239848,
         type: 3}
