@@ -220,14 +220,16 @@ public class PlayListManager : MonoBehaviour
 
     public void ClosePlaylistStuff()
     {
-        playerCanvas.SetActive(true);
-        playlistStuff.SetActive(false);
+        if(currentPlayList.playlistSongs.Count > 0)
+        {
+            playerCanvas.SetActive(true);
+            playlistStuff.SetActive(false);
 
-        //Do stuff to put the last selected playlist into the music player
-        spotifyPlayer.currentPlaylist = currentPlayList;
-        spotifyPlayer.index = 0;
-        spotifyPlayer.SetUIStuff();
-        spotifyPlayer.PlaySong();
-
+            //Do stuff to put the last selected playlist into the music player
+            spotifyPlayer.currentPlaylist = currentPlayList;
+            spotifyPlayer.index = 0;
+            spotifyPlayer.SetUIStuff();
+            spotifyPlayer.PlaySong();
+        }
     }
 }
