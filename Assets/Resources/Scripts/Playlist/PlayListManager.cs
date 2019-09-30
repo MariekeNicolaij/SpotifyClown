@@ -94,7 +94,10 @@ public class PlayListManager : MonoBehaviour
         playlist.playlistName = newPlaylistName.text;
         playListData.name = newPlaylistName.text;
 
+        listOfPlaylists.Add(playlist);
+
         //Add playlist to the list of playlists when adding songs
+        
         List<Dropdown.OptionData> dropdownOptions = new List<Dropdown.OptionData>();
         dropdownOptions.AddRange(playlistDropdown.options);
         playlistDropdown.options.Clear();
@@ -172,7 +175,6 @@ public class PlayListManager : MonoBehaviour
     public void SelectedPlaylistToAddSongTo()
     {
 
-        Debug.Log(addToPlaylistSelectionDropdown.value);
         if (addToPlaylistSelectionDropdown.value != 0)
         {
             playlistToAddSongTo = listOfPlaylists[addToPlaylistSelectionDropdown.value];

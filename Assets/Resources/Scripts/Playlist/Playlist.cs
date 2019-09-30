@@ -64,8 +64,8 @@ public class Playlist : MonoBehaviour
             {
                 obj.GetComponent<Song>().removeFromPlaylistButton.gameObject.SetActive(false);
             }
-            else
-                deletePlaylistButton.gameObject.SetActive(true);
+            //else
+                //deletePlaylistButton.gameObject.SetActive(true);
         }
 
         /*
