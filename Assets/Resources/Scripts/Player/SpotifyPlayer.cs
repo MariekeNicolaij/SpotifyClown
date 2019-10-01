@@ -68,18 +68,6 @@ public class SpotifyPlayer : MonoBehaviour
 
         SetDurationText();
         DeterminePlaylistName();
-
-        Debug.Log(currentPlaylist.playlistName);
-
-        //isAnimatingSongImage = true;
-        /*
-        songImage.sprite = tempPlaylist[index].songImage;
-        //isAnimatingSongImage = true;
-        songName.text = clip.name;
-        Debug.Log("Kan ik de artist uit de musicfile halen?"); //public Text songArtist;
-
-        SetDurationText();
-        */
     }
 
     void SetDurationText()
@@ -148,7 +136,6 @@ public class SpotifyPlayer : MonoBehaviour
         {
             int playlistLength = currentPlaylist.playlistSongs.Count;
 
-            Debug.Log(nextIndex);
             // Determine which song has to be played
             if (shuffle)
             {
